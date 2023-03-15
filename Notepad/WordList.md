@@ -5,7 +5,8 @@
 - HTML : Hyper Text MarkUp Language : 구조와 내용
 - CSS : Cascading Style Sheet : 모양, 디자인
 - JS : JavaScript : 동적 기능
-
+- get 방식
+- Rest 방식
 
 
 Live Server
