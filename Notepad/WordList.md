@@ -7,6 +7,10 @@
 - JS : JavaScript : 동적 기능
 - get 방식
 - Rest 방식
-
+- property
+- 가상엘리먼트 :
+- DOM : 다큐멘터리 오브젝트 모델
+- BOM : 브라우저 오브젝트 모델 document, history, location, navigator, screen
+- 
 
 Live Server
