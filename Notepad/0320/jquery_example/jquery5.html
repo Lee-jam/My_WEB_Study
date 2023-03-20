@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <style>
+        div{position:absolute;background-color: lightgray; left:0px;top:30px;width:60px;height:60px;margin:5px;}
+    </style>
+    <script src="../../jquery/jquery-3.6.4.js"></script>
+</head>
+<body>
+    <div class="block"></div>
+    <button id="go">GO</button>
+    <button id="stop">STOP</button>
+    <button id="back">BACK</button>
+    
+    <script>
+        //콜백함수를 쓰면서 생기는 이점은 비동기식으로 처리될 수 있는 코드를 동기식으로 처리되도록 정리할 수 있음.
+        $('#go').click(()=>{
+            $('.block').animate({left:"+=100px",opacity:"0.4"},2000);
+        });
+        $('#stop').click(()=>{
+            $('.block').stop();
+        });
+        $('#back').click(()=>{
+            $('.block').animate({left:"-=100px",opacity:"1"},2000);
+        })
+    </script>
+    <br><br><br><br><br>
+    <button id="hide">hide</button>
+    <p id="p1">paragraph</p>
+    <script>
+        $('#hide').click(()=>{
+            $('#p1').hide('slow',function(){
+               alert('paragraph is hidden');
+            })
+            //↑ 동기식 예시
+            //↓ 비동기식 예시
+            // $('#p1').hide(1000);
+            // alert("The paragraph is hidden")
+        })
+    </script>
+    <br><br><br><br><br>
+    <button id="chain">click</button>
+    <p id="p2">paragraph2</p>
+    <script>
+        $('#chain').click(()=>{
+            //한번에 적용이 가능하되 순서가 있는 것은 아님. 순서가 있는 것처럼 보이는 것은 타임값이 들어갔기 때문
+            $('#p2').slideUp(500).css('color','orange').slideDown(2000);
+        })
+    </script>
+</body>
+</html>

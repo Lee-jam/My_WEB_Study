@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../../jquery/jquery-3.6.4.js"></script>
+    <style>
+        div{border: 1px solid black; margin: 20px;}
+        span{display: block;}
+        .bg-blue{background-color: blue;}
+    </style>
+</head>
+<body>
+    <div>
+        <span>div0-span0</span>
+        <span>div0-span1</span>
+        <span>div0-span2</span>
+        <span>div0-span3</span>
+    </div>
+    <div>
+        <span>div1-span0</span>
+        <span>div1-span1</span>
+        <span>div1-span2</span>
+        <span>div1-span3</span>
+    </div>
+    <div>
+        <p>div2-p0</p>
+        <span>div2-span1</span>
+        <span>div2-span2</span>
+        <span>div2-span3</span>
+    </div>
+    <div>
+        <span>div3-span0</span>
+        <span>div3-span1</span>
+        <span>div3-span2</span>
+        <p>div3-p3</p>
+    </div>
+    <div>
+        <button type="button" id="btn1">toggleClass</button>
+        <button type="button" id="btn2">toggle</button>
+        <button type="button" id="btn3">fadeToggle</button>
+        <button type="button" id="btn4">slideToggle</button>
+    </div>
+    <script>
+        $(function(){
+            console.log($('div span:first-child'));
+            //자바스크립트의 classList.add와 동일한 역할
+            $('div span:first-child').addClass('bg-blue');
+            $('div span:last-child').css('background','red');
+            $('div span:first-of-type').hide();
+            $('div span:first-of-type').show();
+            // $('div span:last-of-type').hide('slow',()=>console.log('wow'));
+            $('div span:nth-child(2)').fadeOut(1000);
+            $('div span:nth-child(2)').fadeIn(1000);
+            $('div span:nth-last-child(2)').fadeTo('slow',0.4);
+            $('div span:nth-of-type(2)').slideUp();
+            $('div span:nth-of-type(2)').slideDown();
+            $('div span:first-child').removeClass('bg-blue');
+            //toggleClass는 add와 remove를 합하고 누를 때마다 바뀜
+            $('#btn1').on('click',()=>$('div span:first-of-type').toggleClass('bg-blue'))
+            //toggle은 show와 hide를 합하고 누를 때마다 바뀜
+            $('#btn2').on('click',()=>$('div span:first-of-type').toggle());
+            //fadeToggle은 fadeIn fadeOut을 합하고 누를 때마다 바뀜
+            $('#btn3').on('click',()=>$('div span:last-child').fadeToggle(2000));
+            //slideToggle은 slideUp과 slideDown이 합하고 누를 때마다 바뀜
+            $('#btn4').on('click',()=>$('div span:last-child').slideToggle(1000));
+        })
+    </script>
+</body>
+</html>
