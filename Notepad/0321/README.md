@@ -41,8 +41,27 @@ insertAfter(대상) : 선택자를 대상 앞으로 놓는다.
 ## wrap 함수
 ---
 ```
-wrap()
-wrapAll()
-wrapInner()
-unwrap()
+wrap(어떻게 묶을지) : 선택자인 태그들이나, 아이디, 클래스 별로 ()안에 넣은 태그로 묶음
+ex) 선택자.wrap('<div></div>')
+wrapAll(어떻게 묶을지) : 선택자가 속해있는 전부를 ()안에 넣은 태그로  묶음.
+wrapInner() : 선택자 내부 요소들을 ()안에 넣은 태그로 묶음.
+unwrap() : 선택자의 상위 태그(()안에 넣은 태그)를 제거 
 ```
+
+## 화살표 함수 (Fat Arrow)
+---
+> function을 대신하여 사용할 수 있는 함수   
+주의점
+```
+        //화살표 함수 경우 이때 this는 window를 가르킨다.
+        $('p').click(()=>$(this).toggleClass('light'));
+        
+        //이를 해결하려면 function으로 작성하거나 e를 적어준다.
+        $('p').click(function(){
+            $(this).toggleClass('light')
+        });
+        $('p').click((e)=>$(e.target).toggleClass('light'));
+```
+
+## attr 함수, prop함수
+---

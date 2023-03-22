@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+    <script src="../../jquery/jquery-3.6.4.js"></script>
+    <style>
+        p{font-size: large;font-weight: bolder;}
+    </style>
+</head>
+<body>
+    <!-- 버튼을 누를때 마다 쌓이도록 혹은 누르면 쌓이도록-->
+    <h3>오늘 점심은 뭘 먹었나요?</h3>
+    <div>
+        <input type="radio" name="food" id="han">한식<br>
+        <input type="radio" name="food" id="jjang">중식<br>
+        <input type="radio" name="food" id="il">일식<br>
+        <input type="radio" name="food" id="yang">양식<br>
+    </div>
+    <div id="sick">
+        <p class="han">한식<sum></sum></p>
+        <p class="jjang">중식<sum></sum></p>
+        <p class="il">일식<sum></sum></p>
+        <p class="yang">양식<sum></sum></p>
+    </div>
+    <script>
+        // $('#han').click(function(){
+        //     $('.han').append("■");
+        // })
+        // $('#jjang').click(function(){
+        //     $('.jjang').append("■");
+        // })
+        // $('#il').click(function(){
+        //     $('.il').append("■");
+        // })
+        // $('#yang').click(function(){
+        //     $('.yang').append("■");
+        // })
+
+        // $('input').click(function(){
+        //     if($(this).attr('id')=="han"){
+        //         $('.han').append("■");
+        //     }else if($(this).attr('id')=="jjang"){
+        //         $('.jjang').append("■");
+        //     }else if($(this).attr('id')=="il"){
+        //         $('.il').append("■");
+        //     }else{
+        //         $('.yang').append("■");
+        //     }
+        // })
+        count = 0;
+
+        $('div input').click(function(){
+            let getid = '.'+$(this).attr('id');
+            $(getid).append("<span>■</span>");
+            $(getid).find('sum').text($(getid).find('span').length);
+        })
+        
+
+    </script>
+
+    <h3>오늘 점심은 뭘 먹었나요?</h3>
+    <div id="launch">
+        <p class="han2">한식</p>
+        <p class="jjang2">중식</p>
+        <p class="il2">일식</p>
+        <p class="yang2">양식</p>
+    </div>
+    <script>
+        $('#launch p').on('click',function(){$('.'+$(this).attr('class')).append("■");})
+    </script>
+</body>
+</html>
